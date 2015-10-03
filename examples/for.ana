@@ -1,0 +1,40 @@
+// for loops
+// see also array.ana
+// bubble sort
+
+program Bubble{
+
+	void sort(int a[]){
+		int i, j, tmp, n2;
+		int n = size(a, 0) - 1;
+		// note middle term lacks ';'
+		for(i = 0; | i < n | i = i + 1;) {
+			n2 = n - 1 - i;
+	 		for (j = 0; | j < n2 | j = j + 1;)
+	 			if (a[j + 1] < a[j]) {
+	      				tmp = a[j];
+	      				a[j] = a[j + 1];
+	      				a[j + 1] = tmp;
+	  			}
+		}
+	}
+	
+	void printArray(int a[]){
+		int i;
+		int n = size(a, 0);
+		print("{ ");
+		for(i = 0; | i < n - 1 | i = i + 1;) {
+			print(a[i]); print(" ");
+		}
+		print("}");
+	}
+	
+	void main(){
+		int array[10] = { 9, 1, 4, 5, 2, 8, 3, 6, 7, 3};
+		print("sort array"); nl();
+		printArray(array); nl();
+		sort(array);
+		printArray(array);
+	}
+
+}

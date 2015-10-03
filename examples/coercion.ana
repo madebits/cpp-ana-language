@@ -1,0 +1,25 @@
+// ints and reals are converted as necesary, real to int causes cut
+program TypeCoercion{
+	void main() {
+		int i, j = 5;
+		real r = -2.3e-4;
+				
+		nl(); print(r);
+		i = r;
+		nl(); print(i);
+		
+		// because of <- evaluation this assigns 0 to r
+		i = 1;
+		r = i / j;
+		nl(); print(r);
+		
+		// to get the 1 / 5 use something such as
+		r = i;
+		r = r / j;
+		nl(); print(r);
+		
+		nl(); print(i % j);
+		
+		print("\nsee other files for more examples\n");
+	}
+}

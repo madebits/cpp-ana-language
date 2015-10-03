@@ -1,0 +1,34 @@
+// loops
+program Loop{
+
+	void nicePrint(int c){
+		if(c < 10) print(" ");
+		if(c < 100) print(" ");
+		print(c + 0); 
+	}
+	
+	void main(){
+		int a, b;
+		print("\nmultiplication table\n");
+		a = 1; b = 1;
+		print("  * ");
+		while(b <= 10){
+			nicePrint(b); print(" ");
+			b = b + 1;
+		}
+		print("\n");
+		while(a <= 10){
+			b = 1;
+			nicePrint(a);
+			while(b <= 10){
+				print(" ");
+				nicePrint(a * b);
+				b = b + 1;
+			}
+			print("\n");
+			a = a + 1;
+		}	
+	
+	}
+	
+}

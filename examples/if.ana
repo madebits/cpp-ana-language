@@ -1,0 +1,36 @@
+// if else
+program AgeGame{
+
+	void ageGame(){
+			int age;
+			print("\nEnter your age\n");
+			read(age);
+			nl(); nl();
+			if(age < -20)
+				print("you have surpassed the light speed limit");
+			else if((age >= -20) and (age < -1))
+				print("you are still inside your dad");
+			else if((age >= -1)  and  (age < 0))
+				print("you are still inside your mom");
+			else if(age == 0)
+				print("you just came out");
+			else if((age > 0)  and  (age <= 16))
+				print("you still love your mom and dad");
+			else if((age > 16) and (age <= 24))
+				print("you are not alone");
+			else if ((age > 24) and (age <= 70))
+				print("you have forgotten who you are");
+			else if((age > 70) and (age <= 100))
+				print("it's time to stop spending the government's funds");
+			else { 
+				print("you must have died by now, what are you waiting for?\n");
+				print("the new version of AnA may never come out :o)");
+			}
+			nl();
+			
+	}
+
+	void main(){
+		ageGame();
+	}
+}

@@ -1,0 +1,30 @@
+program Fibonacci
+{
+	int fib1(int n)
+	{
+		if(n < 2) return n;
+		return fib1(n - 1) + fib1(n - 2);
+	}
+	
+	int fib2(int n)
+	{
+		int k, f1, f2, f;
+		if(n < 2) return n;
+		f1 = f2 = 1;
+		for(k = 2; | k < n | k = k + 1;)
+		{
+			f = f1 + f2;
+			f2 = f1;
+			f1 = f;
+		}
+		return f;
+	}
+	
+	void main()
+	{
+		int i = fib1(6);
+		print(i);
+		nl();
+		print(fib2(6));
+	}
+}

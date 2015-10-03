@@ -1,0 +1,48 @@
+// loops and conditionals
+program Cond{
+
+	int add(int a, int b){
+		print("\nadd called\n");
+		return a + b;
+	}
+
+	void main(){
+		int a = 1, b = 0, c = 1;
+		int i; // i = 0;
+		real r1, r2 = 5.3e-2;
+		
+		print("\na b c\n");
+		print(" "); print(a);
+		print(" "); print(b);
+		print(" "); print(c);
+		
+		print("\na or c\n"); print(a or b);
+		print("\na or c\n"); print(a or c);
+		print("\na and b\n"); print(a and b);
+		print("\na and c\n"); print(a and c);
+		print("\nnot a\n"); print(not a);
+		
+		//short circuit
+		i = a or (add(b , b));
+		nl(); print(b); 
+		nl(); print(i); 
+	
+		i = b and (add(a , b));
+		nl(); print(b); 
+		nl(); print(i);
+		
+		// 0 is false, any other value true
+		nl(); print(r2 and c);
+		
+		i = (a or not b) and (not c + b);
+		print("\n(a or not b) and (not c + b) "); print(i);
+		nl(); print(a);
+		
+		while((i <= 3) or (a > 5)){
+			i = i + 1;
+			a = i - 1;
+			nl(); print(i); 
+		}
+		
+	}
+}

@@ -1,0 +1,24 @@
+// another rec function and a loop
+
+program Gcd{
+
+	int gcd(int a, int b){
+		if(b == 0) return a;
+		else return gcd(b , a % b);
+	}
+	
+	void main(){
+		int a = -1, b = - 1; 
+		print("Greatest common divisor 12, 18 is: ");
+		print(gcd(12, 18));
+		print("\n\nEnter two numbers\n\t(or any non number to stop):\n");
+		while((a != 0) and (b != 0)){
+			nl();
+			read(a);
+			read(b);
+			print("gcd = ");
+			print(gcd(a, b));
+			nl();
+		}
+	}
+}

@@ -1,0 +1,51 @@
+// arrays in AnA can have dimensions calculated dynamically at run-time
+// arrays can be used for heap memory allocation 
+// arrays in AnA are allocated in heap and passed by reference only
+
+program DynamicMemory {
+
+	void dynMem(int dim)
+	{
+		int i, temp;
+		int A[dim];
+		for(i = 0; | i < dim | i = i + 1;)
+		{
+			print("\nSpecify element: ");
+			print(i);
+			read(temp);
+			A[i] = temp;
+		}
+		
+		for(i = 0; | i < size(A, 0) | i = i + 1;)
+		{
+			print(A[i]);
+			if(i != (size(A, 0) - 1)) print(", ");
+		}
+	}
+	
+	void main(){
+		int dim;
+		
+		print("Enter the number of elements: ");
+		read(dim);
+		if(dim <= 0)
+		{ 
+			print("\nNumber of elements must be possitive!");
+			exit();
+		}
+		dynMem(dim);
+		
+		// another alternative
+		// this is a trick to create a new block to dynamically allocate memory
+		if(1)
+		{
+			int A[dim];
+			print("\nInside the block");
+			nl();
+			print(size(A, 0));
+			
+			// A is destroyed here
+		}
+	}
+
+}

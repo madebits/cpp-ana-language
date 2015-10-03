@@ -1,0 +1,71 @@
+// http://ciips.ee.uwa.edu.au/~morris/Year2/PLDS210/qsort.html
+
+program Quicksort
+{
+	function void quicksort;
+	function int partition;
+	function void swap;
+	
+	void sort(int a[])
+	{
+		quicksort(a, 0, len(a) - 1);
+	}
+	
+	void quicksort(int a[], int low, int high)
+	{
+		int pivot;
+		if(high > low)
+		{
+			pivot = partition(a, low, high);
+			quicksort(a, low, pivot - 1);
+			quicksort(a, pivot + 1, high);
+		}
+  	}
+	
+	int partition(int a[], int low, int high)
+	{
+		
+		int left, right;
+		int pivot_item;
+
+		pivot_item = a[low];
+		
+		left = low;
+		right = high;
+		
+		while (left < right)
+		{
+			while(a[left] <= pivot_item)
+			{
+				left = left + 1;
+				if(left >= high) break;
+			}
+			while( a[right] > pivot_item)
+			{
+				right = right - 1;
+				if(right <= left) break;
+			}
+			if(left < right) swap(a, left, right);
+		}
+		a[low] = a[right];
+		a[right] = pivot_item;
+		return right;
+	}
+	
+	void swap(int a[], int left, int right)
+	{
+		int t = a[left];
+		a[left] = a[right];
+		a[right] = t;
+	}
+
+	
+	void main()
+	{
+		int array[10] = { 9, 1, 4, 5, 2, 8, 3, 6, 7, 3};
+		print(array);
+		sort(array);
+		print(array);
+	}
+
+}

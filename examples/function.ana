@@ -1,0 +1,33 @@
+// shows how to call a function
+// before its declaration
+// example: mutual recursion
+
+program FuncScope{
+	int a;
+
+	// use function to define f2 if you
+	// plan to use it in f1 that is declared
+	// before f2
+	function int f2;
+	
+	// using function for any other function does
+	// not changes anything, eg:
+	function void main;
+
+	int f1(int n){
+		if(n < 1) return 1;
+		return n * f2(n - 1);
+	}
+
+	int f2(int n){
+		if(n < 1) return 1;
+		return n * f1(n - 1);
+	}
+	
+	void main(){
+		print("Funny way to cal factorial 5!:\n");
+		print(f1(5));
+		nl();
+		print(f2(5));
+	}
+}

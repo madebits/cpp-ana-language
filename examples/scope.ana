@@ -1,0 +1,62 @@
+// testing var scope
+program VarScope {
+	// global
+	int a = 1; 
+	real b, c = 10.5; // note b = 0.0
+	
+	void f1(int a){
+		print("a is local to f1:    ");
+		print(a);
+		nl(); // newline
+		print("but b; c are global: ");
+		print(b); print("; "); print(c);
+		nl();
+	}
+
+	void main(){
+		// in each block the declarations
+		// are in placed in the beginning
+		// before any other action
+		int a = 2; // a is local to main
+		f1(13);
+		f1(a);
+		
+		print("\nbegin if\n");
+		if(a == 2){
+			// a, b are local to if
+			int a = 4; int b = 3;
+			f1(a);
+			// b is local to if
+			print("\nbegin while\n");
+			while(b > 0){
+				// this a is local to while
+				int a = b - 1;
+				// if you redefine b here
+				// then b in while condition
+				// will not see the changes
+				// made to b here
+				// thus if the following line is
+				// uncommented the loop will be infinite
+				
+				//int b = 0;
+				
+				print("\ninside while\n");
+				f1(b);
+				b = a;
+				// use dump to see how it look
+				dump();
+			}
+			print("\nend while\n");
+		}
+		print("\nend if\n");
+		// here b is the global one
+		while(b > 0){
+			// but a is main() local
+			b = a - 1;
+			f1(b);
+		}
+		print("\nthe last dump :o)\n");
+		dump();
+	}
+
+}

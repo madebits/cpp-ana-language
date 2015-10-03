@@ -1,0 +1,50 @@
+// a recursive function factorial(n) = n!
+// the recursive version, the iterative version
+// and the iterative recursion
+// we assume n is positive
+
+program Factorial {
+
+	// recursive
+	
+	int fact(int n){
+		if(n < 1) return 1;
+		return n * fact(n - 1);
+	}
+	
+	// iterative
+	
+	int fact2(int n){
+		int result = 1;
+		if(n < 1) return 1;
+		while(n > 0){
+			result = result * n;
+			n = n - 1;
+		}
+		return result;
+	}
+	
+	// iterative recursion, this is a helper function
+	// used in fact3
+	
+	int fact3Helper(int n, int a){
+		if(n == 0) return a;
+		else if(n <= 0) return 1; 
+		else return fact3Helper(n - 1, a * n);
+	}
+	
+	int fact3(int n)
+	{
+		return fact3Helper(n, 1);
+	}
+
+	void main(){
+		print("fact(5)  = ");
+		print(fact(5));
+		print("\nfact2(5) = ");
+		print(fact2(5));
+		print("\nfact3(5) = ");
+		print(fact3(5));
+	}
+
+}

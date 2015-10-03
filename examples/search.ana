@@ -1,0 +1,32 @@
+// uncomplete 'for'
+// http://www.dcc.uchile.cl/~rbaeza/handbook/algs/3/321.srch.c
+program BinarySearch {
+
+	int search(int key, int r[]){
+		int high, i, low;
+		int n = size(r, 0) - 1;
+		for(low = -1; high = n; | high-low > 1 | ){
+          		i = (high + low) / 2;
+          		if (key <= r[i])	high = i;
+               		else			low  = i;
+          	}
+          	if(key == r[high])	return high;
+		else			return -1;
+     	}
+
+	void main(){
+		// a must be sorted
+		int a[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int pos = -1;
+		
+		pos = search(5, a);
+		if(pos != -1) { print("found"); print(pos); }
+		else print("not found");
+		nl();
+		pos = search(17, a);
+		if(pos != -1) { print("found"); print(pos); }
+		else print("not found");
+		nl();
+	}
+
+}

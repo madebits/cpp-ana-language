@@ -1,0 +1,57 @@
+// the few functions offered by the interpreter
+program Spec{
+	void main(){
+		int a;
+		real b;
+		
+		// read an integer
+		read(a);
+		// or real
+		read(b);
+		
+		// print an integer or real or array
+		print(b);
+		print(a);
+		
+		// also prints a string
+		
+		print("a string");
+		
+		// in a string \n is newline \t is tab \\ is \ and \q is "
+		print("\n\t\t\qfun!\q\n");
+		
+		// a shorter way to print a new line is
+		nl();
+		
+		// math PI is defined as 3.14159265358979323846
+		print("PI = ");
+		print(PI);
+		nl();
+		
+		// type limits
+		
+		print("INT_MAX = ");
+		print(INT_MAX);
+		nl();
+		print("INT_MIN = ");
+		print(INT_MIN);
+		nl();
+		print("REAL_MAX = ");
+		print(REAL_MAX);
+		nl();
+		
+		// this is min positive value
+		print("REAL_MIN = ");
+		print(REAL_MIN);
+		nl();
+		
+		// to assist with mem debug from code use
+		dump();
+		
+		// to force the exit use
+		exit();
+		
+		// len() and size() are used with array, see array.ana
+		// random(), see random.ana
+	}
+}

@@ -1,0 +1,79 @@
+// arrays in AnA
+// A = B * C;
+// A[L, N] = B[L, M] * C[M, N]
+// L = 2, M = 3, N = 4
+
+program ArrayMultiplication{
+	
+	// some global variables
+	
+	// A is 2x4 array of zeroes
+	real A[2, 4];
+	// we can init array like this, note that
+	// 0, 1, 2 is the first row and 11, 1, 2 the
+	// second row
+	real B[2, 3] = {0, 1, 2, 11, 1, 2 };
+	real C[3, 4] = {0, 1, 2, 3, 11, 1, 2, 3, 22, 1, 2, 3 };
+
+	// predeclare nicePrint to use in print2DArray
+	function void nicePrint;
+
+	// prints an 2D array on screen
+	void print2DArray(real a[]){
+		int i, j;
+		// the internal func size() return the sizes of the dimensions of an array
+		// where 0 is D1, 1 is D2.
+		int n1 = size(a, 0);
+		int n2 = size(a, 1);
+		
+		print("[");
+		print(n1 + 0); print(", "); print(n2 + 0);
+		print("] elements: ");
+		// the internal funct len() return the number of elems in a array
+		print(len(a)); 
+		nl();
+		
+		// when called only with the array name size() returns
+		// the number of dimensions for the array
+		if(size(a) != 2){
+			print("not a 2D array");
+			nl();
+			return;
+		}
+		
+		for (i = 0; | i < n1 | i = i + 1;){
+			for (j = 0; | j < n2 | j = j + 1;)
+				nicePrint(a[i, j]); print(" ");
+			nl();
+		}
+		nl();
+	}
+	
+	void nicePrint(real r){
+		if(r < 10) print(" ");
+		if(r < 100) print(" ");
+		print(r + 0);
+	}
+
+	void main(){
+		int i, j, k, sum;
+		int N = 4, L = 2, M = 3;
+		
+		print("A"); print2DArray(A);
+		print("B"); print2DArray(B);
+		print("C"); print2DArray(C);
+		nl();
+		
+		for (j = 0; | j < N | j = j + 1;)
+			for( i = 0; | i < L | i = i + 1;){
+				for ( sum = 0; k = 0; | k < M | k = k + 1;)
+					sum = sum + B[i, k] * C[k, j];
+				A[i, j] = sum;
+			}
+				
+		print("A = B * C"); nl();
+		print("A"); print2DArray(A);
+
+	}
+
+}

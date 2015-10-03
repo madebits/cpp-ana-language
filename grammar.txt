@@ -1,0 +1,105 @@
+Grammar
+
+  Number, Line, Rule
+    1  95 startana -> program
+    2 113 program -> PROGRAM ID '{' decls '}'
+    3 123 decls -> vardecls funcpdecs funcdecls
+    4 124 decls -> vardecls funcdecls
+    5 125 decls -> vardecls
+    6 126 decls -> funcpdecs funcdecls
+    7 127 decls -> funcdecls
+    8 128 decls -> /* empty */
+    9 131 vardecls -> vardecls vardec
+   10 132 vardecls -> vardec
+   11 135 vardec -> vartype varidlist
+   12 138 vartype -> REAL
+   13 139 vartype -> INT
+   14 142 varidlist -> startvaridlist endvarid
+   15 143 varidlist -> endvarid
+   16 146 startvaridlist -> startvaridlist startvarid
+   17 147 startvaridlist -> startvarid
+   18 150 startvarid -> ID ','
+   19 151 startvarid -> ID varidexpr ','
+   20 158 startvarid -> ID vararrayexpr
+   21 166 endvarid -> ID ';'
+   22 167 endvarid -> ID varidexpr ';'
+   23 174 endvarid -> ID vararrayexpr ';'
+   24 203 varidexpr -> '=' expr
+   25 209 vararrayexpr -> arraybound
+   26 210 vararrayexpr -> arraybound '=' '{' exprlist '}'
+   27 213 arraybound -> '[' exprlist ']'
+   28 218 exprlist -> exprlist ',' expr
+   29 222 exprlist -> expr
+   30 228 funcpdecs -> funcpdecs funcpdec
+   31 229 funcpdecs -> funcpdec
+   32 232 funcpdec -> FUNCTION vartype ID ';'
+   33 233 funcpdec -> FUNCTION VOID ID ';'
+   34 236 funcdecls -> funcdecls funcdec
+   35 237 funcdecls -> funcdec
+   36 240 funcdec -> funchead arglist ')' block
+   37 243 funchead -> vartype fid
+   38 244 funchead -> VOID fid
+   39 247 fid -> ID '('
+   40 250 arglist -> arglist ',' onearg
+   41 251 arglist -> onearg
+   42 252 arglist -> /* empty */
+   43 255 returnExpr -> RETURN expr
+   44 268 returnExpr -> RETURN
+   45 282 onearg -> vartype ID
+   46 283 onearg -> vartype ID '[' ']'
+   47 293 block -> stmt
+   48 294 block -> '{' blockstart vardecls stmtlist blockend '}'
+   49 298 block -> '{' blockstart vardecls blockend '}'
+   50 305 block -> '{' blockstart stmtlist blockend '}'
+   51 311 blockstart -> /* empty */
+   52 313 blockend -> /* empty */
+   53 315 stmtlist -> stmt
+   54 316 stmtlist -> stmtlist stmt
+   55 319 stmt -> ';'
+   56 320 stmt -> expr ';'
+   57 321 stmt -> ID '=' expr ';'
+   58 330 stmt -> IF '(' expr ')' block
+   59 331 stmt -> IF '(' expr ')' block ELSE block
+   60 332 stmt -> WHILE '(' expr ')' block
+   61 333 stmt -> FOR '(' forstmtlist '|' expr '|' forstmtlist ')' block
+   62 360 stmt -> internfunc ';'
+   63 361 stmt -> returnExpr ';'
+   64 362 stmt -> ID '[' exprlist ']' '=' expr ';'
+   65 372 stmt -> BREAK ';'
+   66 373 stmt -> error ';'
+   67 376 forstmtlist -> stmtlist
+   68 377 forstmtlist -> /* empty */
+   69 380 internfunc -> IPRINT '(' expr ')'
+   70 381 internfunc -> IPRINT '(' STRING ')'
+   71 382 internfunc -> IREAD '(' ID ')'
+   72 390 internfunc -> IEXIT '(' ')'
+   73 391 internfunc -> IDUMP '(' ')'
+   74 392 internfunc -> IPRINTNL '(' ')'
+   75 395 interfuncexpr -> ISIZE '(' ID ')'
+   76 404 interfuncexpr -> ISIZE '(' ID ',' expr ')'
+   77 413 interfuncexpr -> ILEN '(' ID ')'
+   78 424 expr -> CINTEGER
+   79 428 expr -> CREAL
+   80 433 expr -> ID
+   81 443 expr -> '-' expr
+   82 448 expr -> expr '+' expr
+   83 453 expr -> expr '-' expr
+   84 458 expr -> expr '*' expr
+   85 463 expr -> expr '/' expr
+   86 468 expr -> expr '%' expr
+   87 473 expr -> expr '<' expr
+   88 477 expr -> expr '>' expr
+   89 481 expr -> expr GE expr
+   90 485 expr -> expr LE expr
+   91 489 expr -> expr NE expr
+   92 493 expr -> expr EQ expr
+   93 497 expr -> expr AND expr
+   94 501 expr -> expr OR expr
+   95 505 expr -> NOT expr
+   96 510 expr -> '(' expr ')'
+   97 511 expr -> ID '(' exprlist ')'
+   98 512 expr -> ID '(' ')'
+   99 513 expr -> ID '[' exprlist ']'
+  100 523 expr -> interfuncexpr
+
+EOF

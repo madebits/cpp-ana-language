@@ -1,4 +1,4 @@
-/* (c) Vasian CEPA 2002, http://madebits.com */
+/* (c) Vasian CEPA 2002 */
 #ifndef ANA_SEMTYPE_H
 #define ANA_SEMTYPE_H
 

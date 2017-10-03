@@ -1,4 +1,4 @@
-/* (c) Vasian CEPA 2002, http://madebits.com */
+/* (c) Vasian CEPA 2002 */
 #include <stdio.h>
 
 int main(int argc, char** argv){

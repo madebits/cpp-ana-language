@@ -1,4 +1,4 @@
-/* (c) Vasian CEPA 2002, http://madebits.com */
+/* (c) Vasian CEPA 2002 */
 #include "semtype.h"
 
 VALUE NO_VALUE = {0, SEM_UNDEF};

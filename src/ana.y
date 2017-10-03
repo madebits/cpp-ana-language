@@ -1,4 +1,4 @@
-/* (c) Vasian CEPA 2002, http://madebits.com */
+/* (c) Vasian CEPA 2002 */
 %{
 
 #include "interpreter.h"
@@ -588,7 +588,7 @@ int main(int argc, char** argv){
 	double ver;
 	#include "version.txt"
 	fprintf(stderr, "*** AnA Demo Interpreter. Version %1.2lf ***\n", ver);
-	fprintf(stderr, "* (c) 2002 Vasian CEPA, http://madebits.com *\n\n");
+	fprintf(stderr, "* (c) 2002 Vasian CEPA *\n\n");
 	for(i = 1; i < argc; i++){
 		char *arg = argv[i];
 		if((arg[0] == '-') || (arg[0] == '/')){
